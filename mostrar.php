@@ -60,6 +60,8 @@
   
 
 
+<!-- esto es un comentario
+de varias linesas  -->
 
 
     <!-- jquery-->
