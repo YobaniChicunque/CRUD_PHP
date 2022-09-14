@@ -1,16 +1,16 @@
 <?php
+session_start();
+include("config/conexion.php");
 
-include("conexion.php");
+$id=$_REQUEST['id'];//el id no se actualiza
+$nombre=$_REQUEST['nombre'];
+$telefono=$_REQUEST['telefono'];
+$correo=$_REQUEST['correo'];
+$direccion=$_REQUEST['direccion'];
+$pais=$_REQUEST['pais'];
 
-$id=$_POST['id'];//el id no se actualiza
-$name=$_POST['nombre'];
-$phone=$_POST['telefono'];
-$email=$_POST['correo'];
-$address=$_POST['direccion'];
-$country=$_POST['pais'];
-
-$actualizar="UPDATE contactos SET  name='$name',phone='$phone', email='$email',address='$address',country='$country' WHERE id='$id'";
-$resultado=mysqli_query($conexion,$actualizar);
+$consulta="UPDATE contactos SET  name='$nombre',phone='$telefono', email='$correo',address='$direccion',country='$pais' WHERE id='$id'";
+$resultado=mysqli_query($conexion,$consulta);
 
     if($resultado){
         Header("Location: mostrar.php");

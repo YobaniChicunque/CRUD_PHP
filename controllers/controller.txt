@@ -1,0 +1,3 @@
+almacenar todas las consultas de validacion de datos
+por ejemplo validar que la contraseña(password) cumpla
+con ciertas politicas

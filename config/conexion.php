@@ -7,6 +7,7 @@ $conexion = new mysqli(
 3306//port
 );
 
+//Verificar el estado de la conexion 
 if($conexion->connect_errno){
     echo "Falló la conexión a la base de datos";
 }

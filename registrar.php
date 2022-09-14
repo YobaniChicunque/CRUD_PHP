@@ -3,7 +3,7 @@
 
 if($_REQUEST){
 
-include 'conexion.php';
+include("config/conexion.php");
 $nombre=$_REQUEST['nombre'];
 $telefono=$_REQUEST['telefono'];
 $correo=$_REQUEST['correo'];
@@ -22,8 +22,6 @@ $resultado=mysqli_query($conexion,$insertar);
   }
 
 }else{
-
-
     header('location:formregistro.php');
 }
 

@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!--bootstrap-5.1.3 -->
-  <link rel="stylesheet" href="static/bootstrap-5.1.3/css/bootstrap.min.css">
-    <?php
-   include ('conexion.php');
-   ?>
-
-  <title>Mostrar</title>
-</head>
-<body class="container">
+    <?php include ('config/conexion.php');?>
+    <?php include ('templates/header.php');?>
 
 <br><br>
    <a name="" id="" class="btn btn-success" href="formregistro.php" role="button">CREAR USUARIO</a>
@@ -35,20 +22,20 @@
 
                                 <tbody>
                                         <?php
-                                                $resultado='SELECT * FROM contactos'; 
-                                                $res=mysqli_query($conexion, $resultado);
+                                                $consulta='SELECT * FROM contactos'; 
+                                                $resultado=mysqli_query($conexion, $consulta);
 
-                                                while($row=mysqli_fetch_array($res)){
+                                                while($fila=mysqli_fetch_array($resultado)){//Esto es un bucle
                                         ?>
                                             <tr>
-                                                <th><?php  echo $row['id']?></th>
-                                                <th><?php  echo $row['name']?></th>
-                                                <th><?php  echo $row['phone']?></th>
-                                                <th><?php  echo $row['email']?></th>
-                                                <th><?php  echo $row['address']?></th>
-                                                <th><?php  echo $row['country']?></th>
-                                                <th><a href="formactualizar.php?id=<?php echo $row['id'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><?php  echo $fila['id']?></th>
+                                                <th><?php  echo $fila['name']?></th>
+                                                <th><?php  echo $fila['phone']?></th>
+                                                <th><?php  echo $fila['email']?></th>
+                                                <th><?php  echo $fila['address']?></th>
+                                                <th><?php  echo $fila['country']?></th>
+                                                <th><a href="formactualizar.php?id=<?php echo $fila['id'] ?>" class="btn btn-info">Editar</a></th>
+                                                <th><a href="eliminar.php?id=<?php echo $fila['id'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
                                             </tr>
                                         <?php 
                                             }
@@ -56,17 +43,5 @@
                                 </tbody>
                             </table>
   </div>
-  
-  
 
-
-<!-- esto es un comentario
-de varias linesas  -->
-
-
-    <!-- jquery-->
-    <script type="text/javascript" src="static/bootstrap-5.1.3/js/jquery-3.6.1.min.js"></script>
-  <!-- javascript-->
-    <script type="text/javascript" src="static/bootstrap-5.1.3/js/bootstrap.min.js"></script>
-</body>
-</html>
+  <?php include("templates/footer.php");?>
